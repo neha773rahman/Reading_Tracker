@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class Book(models.Model):
     STATUS_CHOICES = [
         ('reading', 'Reading'),
@@ -18,3 +16,6 @@ class Book(models.Model):
     notes = models.TextField(blank=True)
     rating = models.FloatField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.title} by {self.author}"
